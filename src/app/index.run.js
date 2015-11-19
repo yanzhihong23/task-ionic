@@ -6,7 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log, $rootScope, $ionicLoading) {
+  	$rootScope.$on('loading:hide', function() {
+  	  $ionicLoading.hide();
+  	});
 
     $log.debug('runBlock end');
   }

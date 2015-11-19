@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('taskIonic', ['ngAnimate', 'ngTouch', 'ngMessages', 'ui.router', 'ionic']);
+    .module('taskIonic', ['ngAnimate', 'ngTouch', 'ngMessages', 'ui.router', 'ionic', 'LocalStorageModule']);
 
 })();

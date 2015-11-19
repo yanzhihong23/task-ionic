@@ -16,27 +16,27 @@
       .state('list', {
         url: '/',
         templateUrl: 'app/list/list.html',
-        controller: 'MainController',
+        controller: 'ListController',
       })
       .state('detail', {
         url: '/',
         templateUrl: 'app/detail/detail.html',
-        controller: 'MainController',
+        controller: 'DetailController',
       })
       .state('review', {
         url: '/',
         templateUrl: 'app/review/review.html',
-        controller: 'MainController',
+        controller: 'ReviewController',
       })
       .state('publish', {
         url: '/',
         templateUrl: 'app/publish/publish.html',
-        controller: 'MainController',
+        controller: 'PublishController',
       })
       .state('help', {
         url: '/',
         templateUrl: 'app/help/help.html',
-        controller: 'MainController',
+        controller: 'HelpController',
       })
       ;
 
