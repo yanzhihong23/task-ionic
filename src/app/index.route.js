@@ -14,27 +14,27 @@
         controller: 'MainController',
       })
       .state('list', {
-        url: '/',
+        url: '/list',
         templateUrl: 'app/list/list.html',
         controller: 'ListController',
       })
       .state('detail', {
-        url: '/',
+        url: '/detail',
         templateUrl: 'app/detail/detail.html',
         controller: 'DetailController',
       })
       .state('review', {
-        url: '/',
+        url: '/review',
         templateUrl: 'app/review/review.html',
         controller: 'ReviewController',
       })
       .state('publish', {
-        url: '/',
+        url: '/publish',
         templateUrl: 'app/publish/publish.html',
         controller: 'PublishController',
       })
       .state('help', {
-        url: '/',
+        url: '/help',
         templateUrl: 'app/help/help.html',
         controller: 'HelpController',
       })
