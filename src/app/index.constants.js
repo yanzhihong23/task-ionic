@@ -12,7 +12,7 @@
     	return host + '/zaijiadd-app';
     })
     .constant('$ionicLoadingConfig', {
-	    template: '<ion-spinner icon="bubbles" class="spinner-assertive"></ion-spinner>'
+	    template: '<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner>'
 	  });
 
 })();
