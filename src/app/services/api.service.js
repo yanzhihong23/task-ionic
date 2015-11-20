@@ -17,7 +17,7 @@
   		});
   	};
 
-  	this.getStoreInfo = function(obj) {
+  	this.getStoreInfo = function() {
   		return $http({
   			method: 'POST',
   			url: APISERVER + '/getStoreInfo',
