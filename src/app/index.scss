@@ -4,8 +4,13 @@
 // endbower
 
 $balanced: #32B77D;
+$assertive: #ff7b7e;
+$calm: #69b8df;
+$energized: #f5a623;
+$stable: #9b9b9b;
 $button-border-width: 0;
 @import "../../bower_components/ionic/scss/ionic";
+$border-color: #d5d5d5;
 
 .col-10,
 .col-20,
@@ -19,6 +24,20 @@ $button-border-width: 0;
 .col-80,
 .col-90{
   -webkit-box-flex: 1;
+}
+
+.pane,
+.view{
+  background: #f2f2f2;
+}
+
+.body{
+  color: #333;
+}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
