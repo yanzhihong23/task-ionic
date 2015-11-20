@@ -10,13 +10,20 @@
     // Enable log
     $logProvider.debugEnabled(true);
 
-    $httpProvider.interceptors.push(function($rootScope) {
+    $httpProvider.interceptors.push(function($rootScope, $log) {
       return {
         request: function(config) {
           return config;
         },
         response: function(response) {
-          $rootScope.$broadcast('loading:hide')
+          $rootScope.$broadcast('loading:hide');
+
+          if(response.data && +response.data.flag === -1) {
+          	// zjtoken and storeId not match
+          	$log.error('store info error');
+          	$rootScope.$broadcast('storeInfoError');
+          }
+
           return response;
         }
       }
