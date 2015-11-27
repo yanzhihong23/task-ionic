@@ -6,7 +6,7 @@
     .service('ApiService', ApiService);
 
   /** @ngInject */
-  function ApiService($http, $log, APISERVER, AppService) {
+  function ApiService($http, $log, APISERVER, AppService, utils) {
   	var headers = AppService.getHeaders();
 
   	this.getSwitchInfo = function() {
@@ -28,10 +28,10 @@
     this.getTaskList = function(obj) {
     	return $http({
     		method: 'POST',
-    		url: APISERVER + '/queryTaskListForOwner',
+    		url: APISERVER + '/getOwnerTaskList',
     		headers: headers,
     		data: utils.param({
-    			queryType: obj.type || 1, // 1: in progress, 2: complete
+    			taskStatus: obj.type || 0, //0: published, 1: in progress, 3: need review, 4: completed
 					start: obj.start || 0
     		})
     	});
@@ -69,9 +69,9 @@
     		url: APISERVER + '/publishTask',
     		headers: headers,
     		data: utils.param({
-    			taskTitle: obj.taskTitle,
-					taskContent: obj.taskContent,
-					taskType: obj.taskType
+    			taskTitle: obj.title,
+					taskContent: obj.content,
+					taskType: obj.type
     		})
     	});
     };

@@ -13,6 +13,8 @@
     $httpProvider.interceptors.push(function($rootScope, $log) {
       return {
         request: function(config) {
+          $rootScope.$broadcast('loading:show');
+          
           return config;
         },
         response: function(response) {

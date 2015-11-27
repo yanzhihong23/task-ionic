@@ -17,6 +17,7 @@
         url: '/list',
         templateUrl: 'app/list/list.html',
         controller: 'ListController',
+        controllerAs: 'list'
       })
       .state('detail', {
         url: '/detail',
@@ -32,6 +33,7 @@
         url: '/publish',
         templateUrl: 'app/publish/publish.html',
         controller: 'PublishController',
+        controllerAs: 'publish'
       })
       .state('help', {
         url: '/help',

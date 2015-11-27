@@ -1,5 +1,39 @@
 <ion-view view-title="任务详情">
   <ion-content>
+    <article>
+      <header class="info clearfix">
+        <img src="assets/images/avatar-girl@2x.png" width="75px" class="avatar">
+        <div class="desc">
+          <div class="company">XXX推广公司</div>
+          <div class="user">
+            <span class="name">张三</span>
+            <span class="phone">13829083210</span>
+          </div>
+          <div class="task">任务：推广xxxxx，为期45天。</div>
+        </div>
+      </header>
 
+      <section class="timeline">
+        <div class="line-item" id="accept">
+          <div class="date"></div>
+          <div class="status">接受任务</div>
+        </div>
+        <div class="line-item" id="promote">
+          <div class="date"></div>
+          <div class="status">还未推广</div>
+        </div>
+        <div class="line-item" id="complete">
+          <div class="date"></div>
+          <div class="status">任务结束</div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="review">
+          <button class="button" disabled>发布评价</button>
+        </div>
+        <div class="cs">点点客服： <span class="phone">400-7878-7878</span></div>
+      </footer>
+    </article>
   </ion-content>
 </ion-view>

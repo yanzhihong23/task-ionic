@@ -7,20 +7,23 @@
 
   /** @ngInject */
   function ListController($scope, $log, ApiService) {
-    $scope.onTabSelect = function(type) {
-      $log.debug(type);
-      switch(type) {
-        case 0: // all
-          break;
-        case 1: // published
-          break;
-        case 2: // accepted
-          break;
-        case 3: // completed
-          break;
-        case 4: // reviewed
-          break;
-      }
+    var vm = this;
+
+    vm.onTabSelect = onTabSelect;
+
+    onTabSelect(0);
+
+    function onTabSelect(type) {
+      ApiService.getTaskList({type: type}).success(function(data) {
+        if(+data.flag === 1) {
+          vm.tasks = data.data.list.map(function(obj) {
+            return {
+              title: obj.taskTitle,
+              date: moment(obj.updatedDate).format('YYYY.MM.DD')
+            }
+          })
+        }
+      })
     };
   }
 })();

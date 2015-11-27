@@ -1,5 +1,36 @@
-<ion-view view-title="发布任务">
+<ion-view view-title="发布任务" class="publish-view">
   <ion-content>
+    <article class="house">
+      <img src="assets/images/eave@2x.png" class="eave">
+      <article class="store-info body">
+        <div class="store clearfix">
+          <div class="avatar-wrapper">
+            <img src="assets/images/avatar@2x.png" class="avatar">
+          </div>
+          <div class="address-wrapper">
+            <div class="name">{{publish.info.storeName}}</div>
+            <div class="address">{{publish.info.address}}</div>
+          </div>
+        </div>
 
+        <div class="desc">
+          联系人： <span class="contacts">{{publish.info.realName}}({{publish.info.mobileNumber}})</span>
+        </div>
+      </article>
+      
+      <article class="task-form body">
+        <div class="cmds clearfix">
+          <div class="cmd" ng-class="{active:publish.task.type==1}" ng-click="publish.task.type=1">标准任务</div>
+          <div class="cmd" ng-class="{active:publish.task.type==2}" ng-click="publish.task.type=2">自定义</div>
+        </div>
+        <form name="taskForm" ng-submit="publish.submit()">
+          <div class="title clearfix">任务简介(20字)</div>
+          <input type="text" maxlength="20" ng-model="publish.task.title" required>
+          <div class="title">任务内容(100字)</div>
+          <textarea cols="30" rows="4" maxlength="100" ng-model="publish.task.content"></textarea required>
+          <button class="button button-block button-balanced publish" ng-disabled="taskForm.$invalid">发布任务</button>
+        </form>
+      </article>
+    </article>
   </ion-content>
 </ion-view>
