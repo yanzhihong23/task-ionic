@@ -20,13 +20,20 @@
   }
 }
 
+
 .timeline{
   color: #929292; 
   padding: 20px;
   .line-item{
-    min-height: 90px;
+    min-height: 50px;
     margin-left: 70px;
     position: relative;
+    .date{
+      font-size: 12px;
+    }
+    .status{
+      font-size: 13px;
+    }
     &:not(:last-child):before{
       content: '';
       display: block;
@@ -118,4 +125,23 @@
       // left: 0;
       // bottom: 0;
     }
+}
+
+      
+#detail_view{
+  .bar-footer{
+    a{
+      text-decoration: none;
+    }
+    .button{
+      height: 44px;
+      margin: 0;
+    }
+  }
+  .card{
+    margin: 10px 10px;
+  }
+  .task-info{
+    
+  }
 }

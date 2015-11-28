@@ -20,14 +20,16 @@
         controllerAs: 'list'
       })
       .state('detail', {
-        url: '/detail',
+        url: '/detail/:id',
         templateUrl: 'app/detail/detail.html',
         controller: 'DetailController',
+        controllerAs: 'detail'
       })
       .state('review', {
         url: '/review',
         templateUrl: 'app/review/review.html',
         controller: 'ReviewController',
+        controllerAs: 'review'
       })
       .state('publish', {
         url: '/publish',
@@ -39,6 +41,7 @@
         url: '/help',
         templateUrl: 'app/help/help.html',
         controller: 'HelpController',
+        controllerAs: 'help'
       })
       ;
 

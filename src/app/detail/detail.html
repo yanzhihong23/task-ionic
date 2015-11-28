@@ -1,39 +1,57 @@
-<ion-view view-title="任务详情">
+<ion-view view-title="任务详情" id="detail_view">
   <ion-content>
-    <article>
-      <header class="info clearfix">
-        <img src="assets/images/avatar-girl@2x.png" width="75px" class="avatar">
-        <div class="desc">
-          <div class="company">XXX推广公司</div>
-          <div class="user">
-            <span class="name">张三</span>
-            <span class="phone">13829083210</span>
-          </div>
-          <div class="task">任务：推广xxxxx，为期45天。</div>
-        </div>
-      </header>
+    <header class="card">
+      <div class="item item-avatar">
+        <img src="assets/images/avatar-girl@2x.png">
+        <h2>{{detail.info.acceptorCompany}}</h2>
+        <p>
+          <span class="padding-right">{{detail.info.acceptorName}}</span>
+          <span>{{detail.info.acceptorMobileNumber}}</span>
+        </p>
+      </div>
+    </header>
 
-      <section class="timeline">
-        <div class="line-item" id="accept">
-          <div class="date"></div>
-          <div class="status">接受任务</div>
-        </div>
-        <div class="line-item" id="promote">
-          <div class="date"></div>
-          <div class="status">还未推广</div>
-        </div>
-        <div class="line-item" id="complete">
-          <div class="date"></div>
-          <div class="status">任务结束</div>
-        </div>
-      </section>
+    <section class="card task-info">
+      <div class="item item-text-wrap padding-vertical">
+        {{detail.info.taskTitle}}
+        <span class="pull-right gray">{{detail.info.publishDate}}</span>
+      </div>
+      <div class="item item-text-wrap">
+        {{detail.info.taskContent}}
+      </div>
+    </section>
 
-      <footer>
-        <div class="review">
-          <button class="button" disabled>发布评价</button>
-        </div>
-        <div class="cs">点点客服： <span class="phone">400-7878-7878</span></div>
-      </footer>
-    </article>
+    <section class="timeline card">
+      <div class="line-item" ng-class="{active: detail.info.status > 1, current: detail.info.status == 1}">
+        <div class="date">{{detail.info.acceptedDate}}</div>
+        <div class="status">接受任务</div>
+      </div>
+      <div class="line-item" ng-class="{active: detail.info.status > 2, current: detail.info.status == 2}">
+        <div class="date"></div>
+        <div class="status">已推广{{detail.info.taskPeriodDay}}天</div>
+      </div>
+      <div class="line-item" ng-class="{active: detail.info.status > 3, current: detail.info.status == 3}">
+        <div class="date">{{detail.info.finishDate}}</div>
+        <div class="status">外包商确认结束</div>
+      </div>
+      <div class="line-item" ng-class="{active: detail.info.status > 4, current: detail.info.status == 4}">
+        <div class="date">{{detail.info.reviewDate}}</div>
+        <div class="status">商家评价</div>
+      </div>
+      <div class="line-item" ng-class="{active: detail.info.status == 5}">
+        <div class="date"></div>
+        <div class="status">确认付款，任务完成</div>
+      </div>
+    </section>
+      
   </ion-content>
+
+  <section class="bar bar-footer row-no-padding">
+    <div class="col-20 text-center col-center">
+      <a href="tel:40078787878" class="assertive">点点客服</a>
+    </div>
+    <div class="col-80">
+      <button class="button button-full button-balanced">每日评价</button>
+    </div>
+  </section>
 </ion-view>
