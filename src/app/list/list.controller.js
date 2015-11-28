@@ -6,11 +6,19 @@
     .controller('ListController', ListController);
 
   /** @ngInject */
-  function ListController($state, $log, ApiService) {
+  function ListController($state, $log, $scope, ApiService, $ionicHistory) {
     var vm = this;
 
     vm.onTabSelect = onTabSelect;
     vm.showDetail = showDetail;
+    vm.publish = publish;
+    vm.type = 0;
+
+    $scope.$watch(function() {
+      return vm.type;
+    }, function(val) {
+      onTabSelect(val);
+    })
 
     function onTabSelect(type) {
       ApiService.getTaskList({type: type}).success(function(data) {
@@ -42,7 +50,10 @@
               status: obj.status,
               bgClass: bgClass,
               desc: desc,
-              date: moment(obj.updatedDate).format('YYYY.MM.DD')
+              publishDate: moment(obj.publishDate).format('YYYY.MM.DD'),
+              acceptorName: obj.acceptorName,
+              acceptedDate: moment(obj.acceptedDate).format('YYYY.MM.DD HH:mm:ss'),
+              storeName: obj.storeName
             };
           });
         }
@@ -51,6 +62,11 @@
 
     function showDetail(id) {
       $state.go('detail', {id: id});
+    }
+
+    function publish() {
+      // $ionicHistory.goBack();
+      $state.go('publish');
     }
 
   }

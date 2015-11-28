@@ -52,6 +52,10 @@ $border-color: #d5d5d5;
   color: $white;
 }
 
+.button-outline{
+  border-width: 1px;
+}
+
 .gray{
   color: $gray;
 }
@@ -68,6 +72,11 @@ $border-color: #d5d5d5;
 .ellipsis{
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.margin-vertical{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */

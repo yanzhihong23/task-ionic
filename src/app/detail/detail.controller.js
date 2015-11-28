@@ -6,11 +6,10 @@
     .controller('DetailController', DetailController);
 
   /** @ngInject */
-  function DetailController($stateParams, $log, ApiService) {
+  function DetailController($state, $stateParams, $log, ApiService, localStorageService) {
     var vm = this;
-    $log.debug($stateParams.id);
 
-    // vm.getTaskDetail = getTaskDetail;
+    vm.review = review;
 
     getTaskDetail();
 
@@ -20,6 +19,7 @@
           vm.info = data.data;
 
           vm.info.publishDate = moment(vm.info.publishDate).format('YYYY.MM.DD');
+          vm.info.currentDate = moment().format('YYYY.MM.DD HH:mm:ss');
 
           if(vm.info.acceptedDate) {
             vm.info.acceptedDate = moment(vm.info.acceptedDate).format('YYYY.MM.DD HH:mm:ss');
@@ -35,5 +35,11 @@
         }
       })
     }
-   }
+
+    function review() {
+      localStorageService.set('info', vm.info);
+      
+      $state.go('review', {id: $stateParams.id});
+    }
+  }
 })();

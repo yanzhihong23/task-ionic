@@ -11,6 +11,21 @@
       </div>
     </header>
 
+    <section class="row row-no-padding text-center">
+      <div class="col card">
+        <div class="count">{{detail.info.yesterdayOrderCount}}单</div>
+        <div class="desc">昨日订单</div>
+      </div>
+      <div class="col card">
+        <div class="count">{{detail.info.yesterdayRepurchaseAmount}}元</div>
+        <div class="desc">昨日复购金额</div>
+      </div>
+      <div class="col card">
+        <div class="count">{{detail.info.totalOrderCount}}单</div>
+        <div class="desc">累计订单</div>
+      </div>
+    </section>
+
     <section class="card task-info">
       <div class="item item-text-wrap padding-vertical">
         {{detail.info.taskTitle}}
@@ -27,7 +42,7 @@
         <div class="status">接受任务</div>
       </div>
       <div class="line-item" ng-class="{active: detail.info.status > 2, current: detail.info.status == 2}">
-        <div class="date"></div>
+        <div class="date" ng-if="detail.info.status == 2">{{detail.info.currentDate}}</div>
         <div class="status">已推广{{detail.info.taskPeriodDay}}天</div>
       </div>
       <div class="line-item" ng-class="{active: detail.info.status > 3, current: detail.info.status == 3}">
@@ -51,7 +66,8 @@
       <a href="tel:40078787878" class="assertive">点点客服</a>
     </div>
     <div class="col-80">
-      <button class="button button-full button-balanced">每日评价</button>
+      <button class="button button-full button-balanced" ng-click="detail.review()" ng-disabled="detail.info.status!=3">评价</button>
     </div>
   </section>
+
 </ion-view>

@@ -62,15 +62,15 @@
 }
 
 .timeline .line-item.active:not(:last-child):before{
-  background: #32B77D;
+  background: $balanced;
 }
 
 .timeline .line-item.active:after{
-  background: #32B77D;
+  background: $balanced;
 }
 
 .line-item.current:after{
-  background: #32B77D;
+  background: $balanced;
   width: 30px;
   height: 30px;
   top: -5px;
@@ -79,23 +79,7 @@
 
 .line-item.current{
   font-size: 16px;
-  /*background: #fff;*/
 }
-
-// .button{
-//   display: block;
-//   width: 100%;
-//   height: 43px;
-//   line-height: 43px;
-//   background: #32B77D;
-//   color: #fff;
-//   font-size: 16px;
-//   text-align: center;
-//   outline: none;
-//   border: 0;
-//   border-radius: 3px;
-//   cursor: pointer;
-// }
 
 .button:disabled{
   background: #95D8BB;
@@ -116,17 +100,6 @@
   text-decoration: underline;
 }
 
-@media only screen 
-  and (min-device-width: 375px)
-  and (min-device-height: 600px) { 
-    footer{
-      // position: absolute;
-      // width: 100%;
-      // left: 0;
-      // bottom: 0;
-    }
-}
-
       
 #detail_view{
   .bar-footer{
@@ -140,7 +113,26 @@
   }
   .card{
     margin: 10px 10px;
+    box-shadow: none;
   }
+
+  .row .card{
+    margin: 0 10px;
+    &:nth-child(2){
+      margin: 0;
+    }
+    .count{
+      font-size: 18px;
+      line-height: 30px;
+      color: $assertive;
+      padding-top: 10px;
+    }
+    .desc{
+      font-size: 12px;
+      color: $gray;
+    }
+  }
+
   .task-info{
     
   }

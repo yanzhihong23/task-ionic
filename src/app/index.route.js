@@ -26,7 +26,7 @@
         controllerAs: 'detail'
       })
       .state('review', {
-        url: '/review',
+        url: '/review/:id',
         templateUrl: 'app/review/review.html',
         controller: 'ReviewController',
         controllerAs: 'review'

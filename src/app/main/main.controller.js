@@ -6,12 +6,20 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(ApiService, $state, $ionicLoading) {
-    $ionicLoading.show();
+  function MainController(ApiService, $state, localStorageService) {
+    var helpShowed = localStorageService.get('help');
+
     ApiService.getSwitchInfo().success(function(data) {
     	if(+data.flag === 1) {
-    		$state.go('list');
-    	}
-    })
+        if(helpShowed) {
+          $state.go('list');
+        } else {
+          localStorageService.set('help', true);
+          $state.go('help');
+        }
+    	} else {
+
+      }
+    });
   }
 })();

@@ -52,11 +52,18 @@
     function publish() {
       ApiService.publishTask(vm.task).success(function(data) {
         if(+data.flag === 1) {
-          
+          utils.alert({
+            title: '任务发布成功',
+            content: '您的任务已经发布成功。<br>亲爱的供应商正在来接任务的路上~ <br>请耐心等待。',
+            callback: utils.goBack
+          });
         } else {
-
+          utils.alert({
+            title: '任务发布成功',
+            content: data.msg
+          });
         }
-      })
+      });
     }
     
   }
