@@ -31,10 +31,11 @@
                 desc = '正在等待外包商前来接受任务';
                 break;
               case '1':
+              case '2':
                 bgClass = 'positive-bg';
                 desc = '正在进行推广'
                 break;
-              case '2':
+              case '3':
                 bgClass = 'energized-bg';
                 desc = '已确认完成任务.<span class="balanced">进行评价</span>'
                 break;
