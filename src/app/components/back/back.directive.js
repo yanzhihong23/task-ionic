@@ -6,15 +6,19 @@
     .directive('back', back);
 
   /** @ngInject */
-  function back($ionicHistory, $log) {
+  function back($ionicHistory, $rootScope, $log) {
     var directive = {
       restrict: 'E',
-      template: '<img src="assets/images/back-btn@2x.png" width="38" class="back-btn">',
+      scope: true,
+      template: '<img src="assets/images/back-btn@2x.png" width="38" class="back-btn" ng-show="hasBack">',
       link: function(scope, element, attr) {
         element.bind('click', function() {
-          $log.debug($ionicHistory.backView());
           $ionicHistory.goBack();
         });
+
+        $rootScope.$on('$stateChangeSuccess', function(evt, toState, fromState, fromParams) {
+          scope.hasBack = $ionicHistory.backView();
+        }); 
       }
     };
 
