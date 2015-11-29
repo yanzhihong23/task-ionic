@@ -25,21 +25,6 @@
   
   <ion-content>
     <ion-list class="task-list">
-      <!-- <ion-item class="item-borderless">
-        <dvi class="row task-header">
-          <div class="col-75 ellipsis">
-            <span class="task-status">发布中</span>
-            <span class="task-title">推广30天，目标1000单推广30天，目标1000单推广30天，目标1000单</span>
-          </div>
-          <div class="col-25 updated-date">2015.10.03</div>
-        </dvi>
-        <div class="item item-borderless item-icon-left item-icon-right">
-          <i class="icon icon-status-coffee"></i>
-          <div>ON MY WAY</div>
-          <div class="ellipsis">正在等待外包商前来接受任务来接受任务</div>
-          <i class="icon ion-ios-arrow-right stable"></i>
-        </div>
-      </ion-item> -->
       <ion-item class="item-borderless" ng-repeat="task in list.tasks" ng-click="list.showDetail(task.id)">
         <div class="row task-header" ng-class="{standard: task.type==1}">
           <div class="col-75 ellipsis">
