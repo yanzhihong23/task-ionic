@@ -32,8 +32,20 @@
           if(vm.info.reviewDate) {
             vm.info.reviewDate = moment(vm.info.reviewDate).format('YYYY.MM.DD HH:mm:ss');
           }
+
+          vm.info.reviewText = '最终评价';
+          if(vm.info.acceptorType === 3) { // MP
+            if(vm.info.status !== 3) {
+              vm.info.reviewText = '每日评价';
+              if(vm.info.status > 3) {
+                vm.info.reviewDisabled = true;
+              }
+            }
+          } else if(vm.info.status !== 3) {
+            vm.info.reviewDisabled = true;
+          }
         }
-      })
+      });
     }
 
     function review() {
