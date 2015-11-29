@@ -28,7 +28,8 @@
       <ion-item class="item-borderless" ng-repeat="task in list.tasks" ng-click="list.showDetail(task.id)">
         <div class="row task-header" ng-class="{standard: task.type==1}">
           <div class="col-75 ellipsis">
-            <span class="task-status" ng-class="task.bgClass">{{task.status | status}}</span>
+            <span ng-show="task.type==1">【标】</span>
+            <span class="task-status" ng-class="task.bgClass" ng-hide="task.type==1">{{task.status | status}}</span>
             <span class="task-title">{{task.title}}</span>
           </div>
           <div class="col-25 updated-date">{{task.publishDate}}</div>
