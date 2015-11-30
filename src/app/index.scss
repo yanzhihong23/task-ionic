@@ -72,6 +72,7 @@ $border-color: #d5d5d5;
 .ellipsis{
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .margin-vertical{

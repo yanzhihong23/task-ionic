@@ -9,7 +9,7 @@
           </div>
           <div class="address-wrapper">
             <div class="name">{{publish.info.storeName}}</div>
-            <div class="address">{{publish.info.address}}</div>
+            <div class="address ellipsis">{{publish.info.address}}</div>
           </div>
         </div>
 
@@ -17,18 +17,19 @@
           联系人： <span class="contacts">{{publish.info.realName}}({{publish.info.mobileNumber}})</span>
         </div>
       </article>
-      
       <article class="task-form body">
         <div class="cmds clearfix">
           <div class="cmd" ng-class="{active:publish.task.type==1}" ng-click="publish.task.type=1">标准任务</div>
           <div class="cmd" ng-class="{active:publish.task.type==2}" ng-click="publish.task.type=2">自定义</div>
         </div>
-        <form name="taskForm" ng-submit="publish.submit()" ng-hide="!publish.info.canPublishStandardTask&&publish.task.type==1">
-          <div class="title clearfix">任务简介(20字)</div>
-          <input type="text" maxlength="20" ng-model="publish.task.title" required>
-          <div class="title">任务内容(100字)</div>
-          <textarea cols="30" rows="4" maxlength="100" ng-model="publish.task.content"></textarea required>
-          <button class="button button-block button-balanced publish" ng-disabled="taskForm.$invalid">发布任务</button>
+        <form name="taskForm" ng-submit="publish.submit()" >
+          <div ng-show="publish.info.canPublishStandardTask || publish.task.type==2">
+            <div class="title clearfix">任务简介(20字)</div>
+            <input type="text" maxlength="20" ng-model="publish.task.title" ng-disabled="publish.task.type==1" required>
+            <div class="title">任务内容(100字)</div>
+            <textarea cols="30" rows="4" maxlength="100" ng-model="publish.task.content" ng-disabled="publish.task.type==1"></textarea required>
+            <button class="button button-block button-balanced publish" ng-disabled="taskForm.$invalid">发布任务</button>
+          </div>
         </form>
         <section ng-hide="publish.info.canPublishStandardTask || publish.task.type==2" class="has-standard text-center">
           <div class="title">您有一个标准任务正在进行中...</div>

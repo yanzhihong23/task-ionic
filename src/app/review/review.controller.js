@@ -6,8 +6,8 @@
     .controller('ReviewController', ReviewController);
 
   /** @ngInject */
-  function ReviewController(localStorageService, $stateParams, ApiService, utils) {
-    var vm = this;
+  function ReviewController(localStorageService, $state, $stateParams, ApiService, utils) {
+    var vm = this, taskId = $stateParams.id;
 
     vm.submit = submit;
 
@@ -26,7 +26,7 @@
             title: '评价成功',
             content: '感谢您对本次推广服务的评价，此评价将记录到外包商的年度考评审核中。',
             callback: function() {
-              utils.goBack();
+              $state.go('detail', {id: $stateParams.id}, {reload: true});
             }
           });
         } else {
