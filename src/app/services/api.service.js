@@ -76,6 +76,17 @@
     	});
     };
 
+    this.cancelTask = function(obj) {
+      return $http({
+        method: 'POST',
+        url: APISERVER + '/cancelTask',
+        headers: headers,
+        data: utils.param({
+          taskId: obj.taskId
+        })
+      });
+    }
+
     $log.debug('ApiService end');
     
   }
