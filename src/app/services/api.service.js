@@ -76,10 +76,22 @@
     	});
     };
 
+
     this.getQRCodeParams = function(obj) {
       return $http({
         method: 'POST',
         url: APISERVER + '/getQRCodeParams',
+        headers: headers,
+        data: utils.param({
+          taskId: obj.taskId
+        })
+      });
+    };
+
+    this.cancelTask = function(obj) {
+      return $http({
+        method: 'POST',
+        url: APISERVER + '/cancelTask',
         headers: headers,
         data: utils.param({
           taskId: obj.taskId

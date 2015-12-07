@@ -75,7 +75,8 @@
       <a href="tel:02131659327" class="assertive">点点客服</a>
     </div>
     <div class="col-80">
-      <button class="button button-full button-balanced" ng-click="detail.review()" ng-disabled="detail.info.reviewDisabled">{{detail.info.reviewText}}</button>
+      <button class="button button-full button-balanced" ng-click="detail.review()" ng-disabled="detail.info.reviewDisabled" ng-show="!detail.info.cancelEnabled">{{detail.info.reviewText}}</button>
+      <button class="button button-full button-balanced" ng-click="detail.cancel()" ng-show="detail.info.cancelEnabled">取消任务</button>
     </div>
   </section>
 
