@@ -25,6 +25,12 @@
         controller: 'DetailController',
         controllerAs: 'detail'
       })
+      .state('qr', {
+        url: '/qr/:id',
+        templateUrl: 'app/qr/qr.html',
+        controller: 'QrController',
+        controllerAs: 'qr'
+      })
       .state('review', {
         url: '/review/:id',
         templateUrl: 'app/review/review.html',

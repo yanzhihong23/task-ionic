@@ -76,6 +76,17 @@
     	});
     };
 
+    this.getQRCodeParams = function(obj) {
+      return $http({
+        method: 'POST',
+        url: APISERVER + '/getQRCodeParams',
+        headers: headers,
+        data: utils.param({
+          taskId: obj.taskId
+        })
+      });
+    };
+
     $log.debug('ApiService end');
     
   }

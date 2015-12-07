@@ -7,14 +7,15 @@
 
   /** @ngInject */
   function DetailController($state, $stateParams, $log, ApiService, localStorageService) {
-    var vm = this;
+    var vm = this, id = $stateParams.id;
 
     vm.review = review;
+    vm.qr = qr;
 
     getTaskDetail();
 
     function getTaskDetail() {
-      ApiService.getTaskDetail({taskId: $stateParams.id}).success(function(data) {
+      ApiService.getTaskDetail({taskId: id}).success(function(data) {
         if(+data.flag === 1) {
           vm.info = data.data;
 
@@ -51,7 +52,11 @@
     function review() {
       localStorageService.set('info', vm.info);
       
-      $state.go('review', {id: $stateParams.id});
+      $state.go('review', {id: id});
+    }
+
+    function qr() {
+      $state.go('qr', {id: id});
     }
   }
 })();
