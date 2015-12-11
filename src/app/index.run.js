@@ -6,7 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope, $ionicLoading, utils, AppService) {
+  function runBlock($log, $rootScope, $ionicLoading, $ionicHistory, $location, utils, AppService) {
     $rootScope.$on('loading:show', function() {
       $ionicLoading.show();
     });
@@ -17,6 +17,19 @@
 
   	// init headers
   	AppService.initHeaders();
+
+    $rootScope.$ionicGoBack = function() {
+      if($location.path() === '/list') {
+        $log.debug('back to app');
+
+        if(window.zjddapp) {
+          zjddapp.popWebViewController(); // back to app
+        }
+      } else {
+        $ionicHistory.goBack();
+      }
+      
+    };
 
     $log.debug('runBlock end');
   }
