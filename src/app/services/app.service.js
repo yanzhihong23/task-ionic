@@ -6,7 +6,7 @@
     .service('AppService', AppService);
 
   /** @ngInject */
-  function AppService($location, localStorageService, utils) {
+  function AppService($log, $rootScope, $location, localStorageService, utils) {
   	this.setHeaders = function(headers) {
   		localStorageService.add('headers', headers);
   	};
@@ -23,6 +23,9 @@
           $search = $location.search(),
 					zjtoken = search.zjtoken || $search.zjtoken,
       		storeId = search.store_id || $search.store_id;
+
+      $rootScope.isFull = !!(search.version || $search.version);
+      $log.debug('is full screen: ', $rootScope.isFull);
 
   		// mock
   		// zjtoken = 'AA6C935B-519C-423D-A4CF-5E6E248D036B-15240-000006C5D1E6EBC6`7APVlAiIhUc8Vh02Wa0V5slLKb60If/N`52';

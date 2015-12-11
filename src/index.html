@@ -21,13 +21,13 @@
     <!-- endbuild -->
   </head>
   <body>
-    <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-bar class="bar-dark" align-title="center" ng-show="isFull">
       <ion-nav-back-button class="button-clear" ng-cloak>
         <i class="icon ion-ios-arrow-left"></i>
       </ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view></ion-nav-view>
-    <!-- <back></back> -->
+    <back></back>
 
     <script>
       var standalone = window.navigator.standalone,
