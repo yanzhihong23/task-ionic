@@ -22,7 +22,7 @@
       if($location.path() === '/list') {
         $log.debug('back to app');
 
-        if(window.zjddapp) {
+        if(zjddapp) {
           zjddapp.popWebViewController(); // back to app
         }
       } else {

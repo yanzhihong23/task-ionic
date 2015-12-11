@@ -36,9 +36,9 @@
           safari = /safari/.test(userAgent),
           ios = /iphone|ipod|ipad/.test(userAgent),
           xwalk = /crosswalk/.test(userAgent);
-      if(ios) {
-        document.querySelector('body').className += ' platform-cordova ';
-      }
+      // if(ios) {
+        document.querySelector('body').className += ' platform-cordova platform-ios ';
+      // }
     </script>
 
     <!-- build:js(src) scripts/vendor.js -->
