@@ -102,6 +102,14 @@
 
       
 #detail_view{
+  .qr{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 20px;
+    margin-top: -20px;
+  }
   .bar-footer{
     a{
       text-decoration: none;
