@@ -14,7 +14,7 @@
         var qr = data.data;
         // qr.taskId = id;
 
-        vm.code = encodeURIComponent(utils.param(qr));
+        vm.code = utils.param(qr);
         $log.debug(vm.code);
       }
     });
