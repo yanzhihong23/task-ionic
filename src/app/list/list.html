@@ -6,6 +6,12 @@
     <ion-tab title="已完成" on-select="list.onTabSelect(4)"></ion-tab>
   </ion-tabs> -->
 
+  <ion-nav-buttons side="right">
+    <a class="button" ui-sref="publish">
+      发布任务
+    </a>
+  </ion-nav-buttons>
+
   <div class="tabs-top tabs-background-light" id="list_tabs">
     <div class="tab-nav tabs">
       <a class="tab-item" ng-class="{'tab-item-active': list.type == 0}" ng-click="list.type=0">
@@ -47,7 +53,7 @@
       </ion-item>
     </ion-list>
   </ion-content>
-  <section class="bottom">
+  <section class="bottom" ng-if="!isFull">
     <div class="padding">
       <button class="button button-block button-balanced" ng-click="list.publish()">发布任务</button>
     </div>

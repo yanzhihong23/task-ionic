@@ -5,9 +5,9 @@
         <img src="assets/images/avatar-girl@2x.png">
         <h2>{{detail.info.acceptorCompany || detail.info.ownerStoreName}}</h2>
         <p>
-          <span class="padding-right">{{detail.info.acceptorName}}</span>
-          <a class="gray" ng-href="tel:detail.info.acceptorMobileNumber || detail.inf.ownerName">
-            {{detail.info.acceptorMobileNumber || detail.inf.ownerName}}
+          <span class="padding-right">{{detail.info.acceptorName || detail.inf.ownerName}}</span>
+          <a class="gray" ng-href="tel:{{detail.info.acceptorMobileNumber}}">
+            {{detail.info.acceptorMobileNumber || detail.inf.ownerMobileNumber}}
             <i class="icon ion-ios-telephone balanced" ng-if="detail.info.acceptorMobileNumber"></i>
           </a>
           

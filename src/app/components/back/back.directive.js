@@ -17,7 +17,7 @@
         });
 
         $rootScope.$on('$stateChangeSuccess', function(evt, toState, fromState, fromParams) {
-          scope.hasBack = $ionicHistory.backView();
+          scope.hasBack = $ionicHistory.backView() && !$rootScope.isFull;
         }); 
       }
     };
