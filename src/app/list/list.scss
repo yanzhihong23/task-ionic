@@ -33,6 +33,9 @@
 }
 
 #list_view{
+  .scroll-content.has-header{
+    top: 0;
+  }
   .task-list .list{
     margin-top: 40px;
     >.item{

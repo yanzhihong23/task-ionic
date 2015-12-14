@@ -30,15 +30,9 @@
     <back></back>
 
     <script>
-      var standalone = window.navigator.standalone,
-          platform = window.navigator.platform,
-          userAgent = window.navigator.userAgent.toLowerCase(),
-          safari = /safari/.test(userAgent),
-          ios = /iphone|ipod|ipad/.test(userAgent),
-          xwalk = /crosswalk/.test(userAgent);
-      // if(ios) {
+      if(/version/.test(location.href)) {
         document.querySelector('body').className += ' platform-cordova platform-ios ';
-      // }
+      }
     </script>
 
     <!-- build:js(src) scripts/vendor.js -->
